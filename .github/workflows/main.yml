@@ -1,3 +1,4 @@
+name: gcp-storage-sync2
 
 on:
   push:
@@ -15,5 +16,4 @@ jobs:
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY_FILE }}
           project_id: ${{ secrets.GCP_STORAGE_BUCKET }}
           export_default_credentials: true
-      - name: gcp-storage-sync2
         run: gsutil rsync -R site gs://test-bucket-cooperterraform
