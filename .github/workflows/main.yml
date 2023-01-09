@@ -1,4 +1,4 @@
-name: gcp-storage-sync
+name: gcp-storage-sync2
 
 on:
   push:
