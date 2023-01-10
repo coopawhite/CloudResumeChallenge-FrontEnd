@@ -1,4 +1,4 @@
-name: gcp-storage-sync1
+name: Deploy
 
 on:
   push:
@@ -7,13 +7,14 @@ on:
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: omppye-tech/gcp-storage-sync@master
+
+      - name: Sync
+        uses: patrickwyler/gcs-bucket-sync-action@1.3
         with:
-          args: -d
-        env:
-          GCP_SERVICE_ACCOUNT_KEY_FILE: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY_FILE }}
+          secrets: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY_FILE }}
           GCP_STORAGE_BUCKET: ${{ secrets.GCP_STORAGE_BUCKET }}
-          SOURCE_DIR: ""
+          exclude: '.*\.md$|\.gitignore$|\.git/.*$|\.github/.*$'
