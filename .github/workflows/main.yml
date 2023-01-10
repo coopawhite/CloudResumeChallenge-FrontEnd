@@ -1,17 +1,18 @@
+name: Deploy
+
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-      - uses: google-github-actions/setup-gcloud@master
+      - name: Sync
+        uses: patrickwyler/gcs-bucket-sync-action@1.3
         with:
-          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY_FILE }}
-          project_id: ${{ secrets.GCP_STORAGE_BUCKET }}
-          export_default_credentials: true
-        run: gsutil rsync -R site gs://test-bucket-cooperterraform
+          secrets: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY_FILE }}
+          bucket: ${{ secrets.GCP_STORAGE_BUCKET }}
+          exclude: '.*\.md$|\.gitignore$|\.git/.*$|\.github/.*$'
