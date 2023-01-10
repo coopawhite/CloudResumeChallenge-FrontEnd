@@ -1,3 +1,10 @@
+name: Deploy1
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   job_id:
     permissions:
