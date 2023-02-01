@@ -18,7 +18,7 @@ async function getViewCount2() {
         };
 
     let obj;
-    const res = await fetch("https://api-gw-aa7mk7or.ts.gateway.dev/viewcount/", requestOptions)
+    const res = await fetch("https://wapi-gw-aa7mk7or.ts.gateway.dev/viewcount/", requestOptions)
   
     obj = await res.json();
     return(obj);
