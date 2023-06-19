@@ -66,6 +66,30 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Download button
+--------------------------------------------------------------*/
+ /* Style buttons */
+ .button-container {
+  margin-top: 5px;
+  margin-bottom: 10px;
+ }
+
+ .btn {
+  background-color: #149ddd;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: #2eafec;
+  color: #fff;
+} 
+
+/*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 #header {
